@@ -5,16 +5,50 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XBoxMouse", "XBoxMouse\XBoxMouse.csproj", "{F89E72A0-6F7D-4E8E-A9C9-DF6A315FF11D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "Controller\Controller.csproj", "{1241F36F-C86C-4161-96BA-12F0C28A049E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configuration", "Configuration\Configuration.csproj", "{40029A49-E99D-4334-9BA3-78A273EA5FB9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F89E72A0-6F7D-4E8E-A9C9-DF6A315FF11D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F89E72A0-6F7D-4E8E-A9C9-DF6A315FF11D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F89E72A0-6F7D-4E8E-A9C9-DF6A315FF11D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F89E72A0-6F7D-4E8E-A9C9-DF6A315FF11D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F89E72A0-6F7D-4E8E-A9C9-DF6A315FF11D}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{F89E72A0-6F7D-4E8E-A9C9-DF6A315FF11D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F89E72A0-6F7D-4E8E-A9C9-DF6A315FF11D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F89E72A0-6F7D-4E8E-A9C9-DF6A315FF11D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F89E72A0-6F7D-4E8E-A9C9-DF6A315FF11D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F89E72A0-6F7D-4E8E-A9C9-DF6A315FF11D}.Release|x86.ActiveCfg = Release|Any CPU
+		{1241F36F-C86C-4161-96BA-12F0C28A049E}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{1241F36F-C86C-4161-96BA-12F0C28A049E}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{1241F36F-C86C-4161-96BA-12F0C28A049E}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{1241F36F-C86C-4161-96BA-12F0C28A049E}.Debug|x86.ActiveCfg = Debug|x86
+		{1241F36F-C86C-4161-96BA-12F0C28A049E}.Debug|x86.Build.0 = Debug|x86
+		{1241F36F-C86C-4161-96BA-12F0C28A049E}.Release|Any CPU.ActiveCfg = Release|x86
+		{1241F36F-C86C-4161-96BA-12F0C28A049E}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{1241F36F-C86C-4161-96BA-12F0C28A049E}.Release|Mixed Platforms.Build.0 = Release|x86
+		{1241F36F-C86C-4161-96BA-12F0C28A049E}.Release|x86.ActiveCfg = Release|x86
+		{1241F36F-C86C-4161-96BA-12F0C28A049E}.Release|x86.Build.0 = Release|x86
+		{40029A49-E99D-4334-9BA3-78A273EA5FB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40029A49-E99D-4334-9BA3-78A273EA5FB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40029A49-E99D-4334-9BA3-78A273EA5FB9}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{40029A49-E99D-4334-9BA3-78A273EA5FB9}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{40029A49-E99D-4334-9BA3-78A273EA5FB9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{40029A49-E99D-4334-9BA3-78A273EA5FB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40029A49-E99D-4334-9BA3-78A273EA5FB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40029A49-E99D-4334-9BA3-78A273EA5FB9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{40029A49-E99D-4334-9BA3-78A273EA5FB9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{40029A49-E99D-4334-9BA3-78A273EA5FB9}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

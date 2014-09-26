@@ -39,8 +39,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="SystemConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Actions\Actions.csproj">
+      <Project>{5f7c6187-784e-4101-b293-263c3750f7e3}</Project>
+      <Name>Actions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controller\Controller.csproj">
+      <Project>{1241f36f-c86c-4161-96ba-12f0c28a049e}</Project>
+      <Name>Controller</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

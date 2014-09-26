@@ -34,6 +34,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -95,6 +97,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Actions\Actions.csproj">
+      <Project>{5f7c6187-784e-4101-b293-263c3750f7e3}</Project>
+      <Name>Actions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Configuration\Configuration.csproj">
+      <Project>{40029a49-e99d-4334-9ba3-78a273ea5fb9}</Project>
+      <Name>Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controller\Controller.csproj">
+      <Project>{1241f36f-c86c-4161-96ba-12f0c28a049e}</Project>
+      <Name>Controller</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

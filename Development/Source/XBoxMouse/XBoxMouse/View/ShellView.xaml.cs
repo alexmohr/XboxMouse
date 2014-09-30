@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using XBoxMouse.ViewModel;
 
 namespace XBoxMouse.View
 {
@@ -10,6 +12,10 @@ namespace XBoxMouse.View
         public MainWindow()
         {
             InitializeComponent();
+            ShellViewModel viewModel = new ShellViewModel();
+
+            DataContext = viewModel;
+             viewModel.Init();
         }
     }
 }

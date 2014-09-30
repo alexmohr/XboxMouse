@@ -61,12 +61,17 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ButtonListener.cs" />
+    <Compile Include="Abstraction\Hardware\Button.cs" />
+    <Compile Include="Abstraction\Listener\ButtonListener.cs" />
+    <Compile Include="Abstraction\Events\ButtonStateChangedEvent.cs" />
+    <Compile Include="Abstraction\Events\StickStateChangedEvent.cs" />
     <Compile Include="Abstraction\HardwareAbstraction.cs" />
+    <Compile Include="Abstraction\Listener\StickListener.cs" />
+    <Compile Include="Abstraction\Hardware\ThumbStick.cs" />
     <Compile Include="KeyBinding.cs" />
-    <Compile Include="Mouse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IStoppableListener.cs" />
+    <Compile Include="StickBinding.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Actions\Actions.csproj">

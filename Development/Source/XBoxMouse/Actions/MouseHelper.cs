@@ -49,12 +49,12 @@ namespace Actions
             /// <summary>
             /// The left button is down.
             /// </summary>
-            LeftDown = 0x0004,
+            LeftDown = 0x0002,
 
             /// <summary>
             /// The left button is up.
             /// </summary>
-            LeftUp = 0x0002,
+            LeftUp = 0x0004,
 
             /// <summary>
             /// The middle button is down.
@@ -110,11 +110,6 @@ namespace Actions
         public static void DoLinkedEvent(MouseEvents first, MouseEvents second)
         {
             mouse_event((uint)first | (uint)second, (uint)Cursor.Position.X, (uint)Cursor.Position.Y, 0, 0);
-        }
-
-        public static void SingleClick()
-        {
-           
         }
     }
 }

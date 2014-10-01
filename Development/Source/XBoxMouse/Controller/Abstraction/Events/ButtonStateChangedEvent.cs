@@ -6,15 +6,15 @@ namespace Controller.Abstraction.Events
 {
     public class ButtonStateChangedEvent : EventArgs
 
-{
-    public ButtonStateChangedEvent(ButtonState state, Button button)
     {
-        State = state;
-        Button = button;
+        public ButtonStateChangedEvent(ButtonState state, Button button)
+        {
+            State = state;
+            Button = button;
+        }
+
+        public ButtonState State { get; private set; }
+
+        public Button Button { get; private set; }
     }
-
-    public ButtonState State { get; private set; }
-
-    public Button Button { get; private set; }
-}
 }

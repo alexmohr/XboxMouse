@@ -18,7 +18,7 @@ namespace Controller.Abstraction.Hardware
 
 
 
-        public KeyValuePair<int, int> Value 
+        internal KeyValuePair<int, int> Value 
         {
             get { return _value; }
             set
@@ -28,7 +28,7 @@ namespace Controller.Abstraction.Hardware
             }
         }
 
-        public KeyValuePair<double, double> RealValue
+        internal KeyValuePair<double, double> RealValue
         {
             get { return _realValue; }
             set

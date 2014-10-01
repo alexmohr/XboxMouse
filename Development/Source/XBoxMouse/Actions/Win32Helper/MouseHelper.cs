@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace Actions
+namespace Actions.Win32Helper
 {
     public class MouseHelper
     {
@@ -107,6 +102,10 @@ namespace Actions
             mouse_event((uint) command,(uint) Cursor.Position.X, (uint)Cursor.Position.Y, 0, 0);
         }
 
+        public static void Scroll(uint ammount)
+        {
+            mouse_event((uint)MouseEvents.Wheel, (uint)Cursor.Position.X, (uint)Cursor.Position.Y, ammount, 0);
+        }
         public static void DoLinkedEvent(MouseEvents first, MouseEvents second)
         {
             mouse_event((uint)first | (uint)second, (uint)Cursor.Position.X, (uint)Cursor.Position.Y, 0, 0);

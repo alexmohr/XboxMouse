@@ -1,19 +1,15 @@
-﻿
-using System;
-using System.Linq;
-using System.Reflection;
+﻿using System.Linq;
 using Actions;
-using Controller.Abstraction;
-using Controller.Abstraction.Hardware;
 using Microsoft.Xna.Framework.Input;
+using Buttons = Controller.Abstraction.Hardware.Buttons;
 
-namespace Controller
+namespace Controller.Bindings
 {
   public class KeyBinding
     {
       private readonly ButtonActions _commandActions = new ButtonActions();
 
-      public Button[] Buttons
+      public Buttons Buttons
       {
           get { return _buttons; }
           set
@@ -26,7 +22,7 @@ namespace Controller
 
       private ActionProvider.Action? _pressAction;
       private ActionProvider.Action? _releaseAction;
-      private Button[] _buttons;
+      private Buttons _buttons;
 
 
       public ActionProvider.Action? PressAction

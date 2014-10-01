@@ -61,17 +61,22 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstraction\Events\TriggerChangedEvent.cs" />
     <Compile Include="Abstraction\Hardware\Button.cs" />
+    <Compile Include="Abstraction\Hardware\Trigger.cs" />
     <Compile Include="Abstraction\Listener\ButtonListener.cs" />
     <Compile Include="Abstraction\Events\ButtonStateChangedEvent.cs" />
     <Compile Include="Abstraction\Events\StickStateChangedEvent.cs" />
     <Compile Include="Abstraction\HardwareAbstraction.cs" />
+    <Compile Include="Abstraction\Listener\TriggerListener.cs" />
     <Compile Include="Abstraction\Listener\StickListener.cs" />
     <Compile Include="Abstraction\Hardware\ThumbStick.cs" />
-    <Compile Include="KeyBinding.cs" />
+    <Compile Include="Abstraction\Hardware\Buttons.cs" />
+    <Compile Include="Bindings\KeyBinding.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IStoppableListener.cs" />
-    <Compile Include="StickBinding.cs" />
+    <Compile Include="Abstraction\Listener\IStoppableListener.cs" />
+    <Compile Include="Bindings\StickBinding.cs" />
+    <Compile Include="Bindings\TriggerBinding.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Actions\Actions.csproj">

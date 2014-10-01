@@ -6,12 +6,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xaml;
 using Actions;
+using Configuration.Collections;
 using Controller;
 using Controller.Abstraction;
 using Controller.Abstraction.Hardware;
 using Controller.Abstraction.Listener;
+using Controller.Bindings;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Buttons = Controller.Abstraction.Hardware.Buttons;
 using XamlReader = System.Windows.Markup.XamlReader;
 
 namespace Configuration
@@ -22,7 +25,7 @@ namespace Configuration
 
         public void ReadConfig(string fileName)
         {
-          // WriteDebugConfiguration();
+         WriteDebugConfiguration();
             _config = (SystemConfiguration) XamlServices.Load(fileName);
             InitSystem();
             
@@ -40,15 +43,16 @@ namespace Configuration
            if (_config.KeyBindings == null)
                return;
             
-            KeyBinding[] keyBindings = new KeyBinding[_config.KeyBindings.Length];
+            KeyBinding[] keyBindings = new KeyBinding[_config.KeyBindings.Count];
             for (int i = 0; i < keyBindings.Length; i++)
             {
-                Button[] buttons =
-                    _config.KeyBindings[i].Buttons.Select(b => _config.Hardware.Buttons.First(h => h.Name == b.Name)).ToArray();
+               Buttons bt = new Buttons();
+                bt.AddRange(_config.KeyBindings[i].Buttons.Select(b => _config.Hardware.Buttons.First(h => h.Name == b.Name)));
+
 
                 keyBindings[i] = new KeyBinding
                 {
-                    Buttons = buttons,
+                    Buttons = bt,
                     PressAction = _config.KeyBindings[i].PressAction,
                     ReleaseAction = _config.KeyBindings[i].ReleaseAction,
                 };
@@ -59,16 +63,13 @@ namespace Configuration
         {
             if (_config.StickBindings == null)
                 return;
-            StickBinding[] stickBindings = new StickBinding[_config.StickBindings.Length];
-            for (int i = 0; i < stickBindings.Length; i++)
+            StickBindings stickBindings = new StickBindings();
+            stickBindings.AddRange(_config.StickBindings.Select(t => new StickBinding
             {
-                stickBindings[i] = new StickBinding
-                {
-                    MoveAction = _config.StickBindings[i].MoveAction,
-                    MoveActionRounded = _config.StickBindings[i].MoveActionRounded,
-                    Stick = _config.Hardware.ThumbSticks.First(s => s.Name == _config.StickBindings[i].Stick.Name)
-                };
-            }
+                MoveAction = t.MoveAction, 
+                MoveActionRounded = t.MoveActionRounded, 
+                Stick = _config.Hardware.ThumbSticks.First(s => s.Name == t.Stick.Name)
+            }));
         }
 
         private void WriteDebugConfiguration()
@@ -78,48 +79,72 @@ namespace Configuration
                 GamePadId = PlayerIndex.One
             };
 
-            StickBinding[] sticksBindings = new StickBinding[1];
 
-            sticksBindings[0] = new StickBinding
-           {
-               Stick = hardware.ThumbSticks.First(x => x.Name == HardwareAbstraction.ThumbStickName.Left),
-               MoveActionRounded = ActionProvider.Action.MouseMove
-           };
-
-            StickListener stickListener = new StickListener { Hardware = hardware };
-            ButtonListener buttonListener = new ButtonListener { Hardware = hardware };
-
-
-
-            KeyBinding aButton = new KeyBinding
+            StickBindings sticksBindings = new StickBindings
             {
-                Buttons = new[]
+                new StickBinding
+                {
+                    Stick = hardware.ThumbSticks.First(x => x.Name == HardwareAbstraction.ThumbStickName.Left),
+                    MoveActionRounded = ActionProvider.Action.MouseMove
+                },
+                new StickBinding
+                {
+                    Stick = hardware.ThumbSticks.First(x => x.Name == HardwareAbstraction.ThumbStickName.Right),
+                    MoveActionRounded = ActionProvider.Action.Scroll
+                }
+            };
+
+            KeyBindings keyBindings = new KeyBindings
+            {
+                new KeyBinding
+                {
+                    Buttons = new Buttons
                     {
                         hardware.Buttons.First(x => x.Name == HardwareAbstraction.ButtonNames.A),
                     },
-                PressAction = ActionProvider.Action.LeftMouseDown,
-                ReleaseAction = ActionProvider.Action.LeftMouseUp,
+                    PressAction = ActionProvider.Action.LeftMouseDown,
+                    ReleaseAction = ActionProvider.Action.LeftMouseUp,
+                },
+                new KeyBinding
+                {
+                    Buttons = new Buttons
+                        {
+                            hardware.Buttons.First(x => x.Name == HardwareAbstraction.ButtonNames.B),
+                        },
+                    PressAction = ActionProvider.Action.RightMouseDown,
+                    ReleaseAction = ActionProvider.Action.RightMouseUp,
+                }
             };
-            KeyBinding[] bindings = { aButton };
 
-
+            TriggerBindings triggerBindings = new TriggerBindings
+            {
+                new TriggerBinding
+                {
+                    MoveAction = ActionProvider.Action.DecreaseVolume,
+                    Trigger = hardware.Triggers.First(t => t.Name == HardwareAbstraction.TriggerName.Left)
+                },
+                new TriggerBinding
+                {
+                    MoveAction = ActionProvider.Action.IncreaseVolume,
+                    Trigger = hardware.Triggers.First(t => t.Name == HardwareAbstraction.TriggerName.Right)
+                }
+            };
+        
 
             SystemConfiguration cfg = new SystemConfiguration
             {
                 Hardware = hardware,
-                KeyBindings = bindings,
-                StickBindings = sticksBindings
+                KeyBindings = keyBindings,
+                StickBindings = sticksBindings,
+                TriggerBindings = triggerBindings
             };
 
-            string t = "default.xaml";
-            using (TextWriter writer = File.CreateText(t))
+            const string dick = "default.xaml";
+            using (TextWriter writer = File.CreateText(dick))
             {
                 XamlServices.Save(writer, cfg);
             }
 
-
-            stickListener.Start();
-            buttonListener.Start();
         }
 
         public SystemConfiguration Configuration

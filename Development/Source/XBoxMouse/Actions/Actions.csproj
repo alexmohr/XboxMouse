@@ -69,9 +69,11 @@
   <ItemGroup>
     <Compile Include="ActionProvider.cs" />
     <Compile Include="ButtonActions.cs" />
-    <Compile Include="MouseHelper.cs" />
+    <Compile Include="Win32Helper\KeyHelper.cs" />
+    <Compile Include="Win32Helper\MouseHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StickActions.cs" />
+    <Compile Include="TriggerActions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

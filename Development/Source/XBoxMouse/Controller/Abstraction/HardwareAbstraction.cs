@@ -15,10 +15,12 @@ namespace Controller.Abstraction
     {
         private readonly Button[] _buttons;
         private readonly ThumbStick[] _thumbSticks;
+        private readonly Trigger[] _triggers;
 
 
-        private StickListener _stickListener = new StickListener();
-        private ButtonListener _buttonListener = new ButtonListener();
+        private readonly StickListener _stickListener = new StickListener();
+        private readonly ButtonListener _buttonListener = new ButtonListener();
+        private readonly TriggerListener _triggerListener = new TriggerListener();
 
         public HardwareAbstraction ()
         {
@@ -38,11 +40,18 @@ namespace Controller.Abstraction
                 _thumbSticks[0] = new ThumbStick {Name = ThumbStickName.Left};
                 _thumbSticks[1] = new ThumbStick {Name = ThumbStickName.Right};
 
+
+                _triggers = new Trigger[2];
+                _triggers[0] = new Trigger { Name = TriggerName.Left };
+                _triggers[1] = new Trigger { Name = TriggerName.Right };
+
                 _buttonListener.Hardware = this;
                 _stickListener.Hardware = this;
+                _triggerListener.Hardware = this; 
 
                 _buttonListener.Start();
                 _stickListener.Start();
+                _triggerListener.Start();
             }
             catch (Exception e)
             {
@@ -58,6 +67,20 @@ namespace Controller.Abstraction
         {
             Left,
             Right
+        }
+
+        /// <summary>
+        /// Enum for thumb sticks.
+        /// </summary>
+        public enum TriggerName
+        {
+            Left,
+            Right
+        }
+
+        public Trigger[] Triggers
+        {
+            get { return _triggers; }
         }
 
 

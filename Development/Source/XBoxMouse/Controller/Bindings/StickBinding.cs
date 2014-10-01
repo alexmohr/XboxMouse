@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using Actions;
-using Controller.Abstraction;
+﻿using Actions;
 using Controller.Abstraction.Hardware;
-using Controller.Abstraction.Listener;
 
-namespace Controller
+namespace Controller.Bindings
 {
     public class StickBinding
     {
@@ -28,7 +21,7 @@ namespace Controller
         private ActionProvider.Action? _moveAction;
         private ActionProvider.Action? _moveActionRounded;
         private ThumbStick _stick;
-
+            
         public ActionProvider.Action? MoveAction
         {
             get { return _moveAction; }

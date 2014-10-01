@@ -30,12 +30,10 @@ namespace Controller.Abstraction.Listener
         /// </summary>
         public void Start()
         {
-            _rightStick = new Thread(StickListening);
-            _rightStick.Name = "RightStickListener";
-            _leftStick = new Thread(StickListening);
-            _leftStick.Name = "LeftStickListener";
+            _rightStick = new Thread(StickListening) {Name = "RightStickListener"};
+            _leftStick = new Thread(StickListening) {Name = "LeftStickListener"};
 
-            _rightStick.Start(HardwareAbstraction.ThumbStickName.Left);
+            _rightStick.Start(HardwareAbstraction.ThumbStickName.Right);
             _leftStick.Start(HardwareAbstraction.ThumbStickName.Left);
         }
 

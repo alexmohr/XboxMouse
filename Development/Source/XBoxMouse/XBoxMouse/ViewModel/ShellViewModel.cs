@@ -21,7 +21,7 @@ namespace XBoxMouse.ViewModel
                 _configManager.ReadConfig(Settings.Default.StartupConfiguration);
                 
             }
-             catch (Exception)
+            catch (Exception)
             {
                 MessageBox.Show("Failed to read configuration file!", "Config invalid", MessageBoxButton.OK,
                     MessageBoxImage.Error);

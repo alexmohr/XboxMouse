@@ -69,6 +69,7 @@
   <ItemGroup>
     <Compile Include="ActionProvider.cs" />
     <Compile Include="ButtonActions.cs" />
+    <Compile Include="Win32Helper\AudioMixerHelper.cs" />
     <Compile Include="Win32Helper\KeyHelper.cs" />
     <Compile Include="Win32Helper\MouseHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,4 +1,5 @@
 XboxMouse
 =========
 
-This repository contains an mouse simulator based on the xbox 360 gamepad.
+This is the development or "nightly" branch. 
+Here you'll find the newest of the newest, the most bugs, the most features, the most of everything.

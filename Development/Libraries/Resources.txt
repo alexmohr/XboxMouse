@@ -1,0 +1,5 @@
+To compile this application you need the xna studio for visual studio 2013. 
+
+Download at:
+	https://msxna.codeplex.com/releases/view/117230
+or extract the archive and follow readme.

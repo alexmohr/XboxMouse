@@ -1,0 +1,16 @@
+﻿<Window x:Class="XBoxMouse.View.VolumeControl" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        Style="{StaticResource TransparentWindow}"    xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Topmost="True"
+        WindowStartupLocation="CenterScreen" 
+        Title="VolumeControl" Height="300" Width="300">
+   
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Image Source="{Binding Path=Image, Converter={StaticResource ImageToSourceConverter}}" Stretch="Fill" VerticalAlignment="Center" Margin="10" HorizontalAlignment="Left"/>
+        <controls:MetroProgressBar  Grid.Row="1" Height="20" Value="{Binding Volume, Mode=OneWay}" Foreground="DodgerBlue" Margin="10" Background="DarkGray"/>
+    </Grid>
+</Window>
